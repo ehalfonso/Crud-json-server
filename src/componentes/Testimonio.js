@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Col, Container } from 'react-bootstrap'
+
 const Testimonio = ({ nombre, pais, empresa }) => {
     return (
         <div className='row '>

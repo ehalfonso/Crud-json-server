@@ -1,30 +1,28 @@
-import logo from './logo.svg';
-import Testimonio from './componentes/Testimonio';
-import Navbar from './componentes/Navbar';
-import Banner from './componentes/Banner';
-import Layout from './componentes/Layout';
-
-import './App.css';
-
-function App() {
+/*import { BrowserRouter, Routes, Route } from "react-router-dom"
+import About from "./pages/About"
+import Home from "./pages/Home"
+import NotFound  from "./pages/NotFound"
+import Users from "./pages/Users"
+import Navbar from "./componentes/Navbar"*/
+import CrudApp from "./componentes/crud/CrudApp"
+const App = () => {
   return (
-    <div className='container'>
-      <Navbar/>
-      <Banner/>
-      <Layout/>
-      <h1 className='text-center mt-5 mb-5'>Estos son los comentarios de nuestros servicios</h1>
-      <Testimonio
-        nombre='Eric'
-        pais='Cuba'
-        empresa='Copextel'
-      />
-      <Testimonio
-        nombre='Roberto'
-        pais='Mexico'
-        empresa='UTS'
-      />
+    <div>
+      <h1>Ejercicio practico</h1>
+      <CrudApp/>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
+/**
+ * <BrowserRouter>
+        <Navbar/>
+        <Routes>
+            <Route path="/" element={<Home/>}/>
+            <Route path="/About" element={<About/>}/>
+            <Route path="/users" element={<Users/>}/>
+            <Route path="*" element={<NotFound/>}/>
+        </Routes>
+    </BrowserRouter>
+ */
