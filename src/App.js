@@ -4,11 +4,13 @@ import Home from "./pages/Home"
 import NotFound  from "./pages/NotFound"
 import Users from "./pages/Users"
 import Navbar from "./componentes/Navbar"*/
+import CrudApi from "./componentes/crud/CrudApi"
 import CrudApp from "./componentes/crud/CrudApp"
 const App = () => {
   return (
     <div>
       <h1>Ejercicio practico</h1>
+      <CrudApi/>
       <CrudApp/>
     </div>
   )

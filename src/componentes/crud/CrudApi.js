@@ -2,25 +2,12 @@ import React, { useState } from 'react'
 import CrudForm from './CrudForm'
 import CrudTable from './CrudTable'
 
-const initialDb = [
-    {
-        id: 0,
-        name: 'Eric',
-        lastname: 'Herrera'
-    },
-    {
-        id: 1,
-        name: 'Armando',
-        lastname: 'Alfonso'
-    },
-    
-]
-const CrudApp = () => {
-    const [db,setDb]=useState(initialDb)
+
+const CrudApi = () => {
+    const [db,setDb]=useState([])
     const [dataToEdit,setDataToEdit]=useState(null)
 
     const createData=(data)=>{
-        data.id=db.length;
         setDb([...db,data])
     }
     const updateData=(data)=>{
@@ -41,7 +28,7 @@ const CrudApp = () => {
     )
 }
 
-export default CrudApp
+export default CrudApi
 /**
  * <CrudForm/>
    

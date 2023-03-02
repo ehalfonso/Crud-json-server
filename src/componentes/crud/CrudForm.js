@@ -8,7 +8,7 @@ const initialForm={
 const CrudForm = ({create,update,dataToEdit,setDataToEdit}) => {
     const [form,setForm]=useState(initialForm);
     useEffect(()=>{
-        console.log("elementos " +dataToEdit)
+        //console.log("elementos " +dataToEdit)
         if(dataToEdit){
             setForm(dataToEdit)
         }
