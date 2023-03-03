@@ -16,9 +16,9 @@ export const helpHTTP = () => {
     console.log(options);
     setTimeout(() => {
       controller.abort();
-    }, 3000);
+    }, 6000);
 
-    return fetch(endpoint, option)
+    return fetch(endpoint, options)
       .then((response) =>
         response.ok
           ? response.json()

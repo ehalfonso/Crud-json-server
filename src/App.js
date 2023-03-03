@@ -11,7 +11,7 @@ const App = () => {
     <div>
       <h1>Ejercicio practico</h1>
       <CrudApi/>
-      <CrudApp/>
+      {/*<CrudApp/>*/}
     </div>
   )
 }

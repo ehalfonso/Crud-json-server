@@ -1,11 +1,37 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { helpHTTP } from '../../helper/helpHttp'
 import CrudForm from './CrudForm'
 import CrudTable from './CrudTable'
+import Loader from './Loader'
+import Message from './Message'
 
 
 const CrudApi = () => {
-    const [db,setDb]=useState([])
+    let api=helpHTTP();
+    let url='http://localhost:5000/users'
+    const [db,setDb]=useState(null)
     const [dataToEdit,setDataToEdit]=useState(null)
+
+    const [error, setError]=useState(null)
+    const [loading, setLoading]=useState(false)
+    useEffect(() => {
+     
+      setLoading(true)     
+      api.get(url).then(response=>{
+        //console.log(response)
+        if(!response.err){
+            setDb(response)
+            setError(null)
+        }
+        else{  
+            setDb(null)
+            setError(response)
+        }
+        setLoading(false)
+    })
+    }, [])
+    
+
 
     const createData=(data)=>{
         setDb([...db,data])
@@ -23,7 +49,10 @@ const CrudApi = () => {
         <div>
             <h1>Crud App</h1>
             <CrudForm create={createData} update={updateData} dataToEdit={dataToEdit} setDataToEdit={setDataToEdit}/>
-            <CrudTable  data={db}  setDataToEdit={setDataToEdit} deleteData={deleteData}/>
+
+            {loading && <Loader/>}
+            {error && <Message msg={`Error ${error.status}: ${error.statusText}`} bgColor="#dc3545"/>}
+            {db && <CrudTable  data={db}  setDataToEdit={setDataToEdit} deleteData={deleteData}/>}
         </div>
     )
 }
@@ -31,5 +60,6 @@ const CrudApi = () => {
 export default CrudApi
 /**
  * <CrudForm/>
+ * minuto 22 me quede
    
  */
